@@ -1,0 +1,43 @@
+image: node:latest
+
+stages:
+  - setup
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install:
+  stage: setup
+  script:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+    - yarn
+  artifacts:
+    paths:
+      - node_modules/
+
+test:
+  stage: setup
+  script:
+    - yarn test
+
+build:
+  stage: setup
+  before_script:
+    - apt-get update
+    - apt-get install zip
+  script:
+    - yarn build
+    - zip -r build/registration.zip build/registration.js
+  artifacts:
+    paths:
+      - build/
+
+deploy:
+  stage: deploy
+  image: python:latest
+  before_script:
+    - pip install awscli
+  script:
+    - aws s3 cp build/registration.zip s3://BUCKET_NAME/functions/registration.zip

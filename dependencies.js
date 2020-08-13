@@ -1,0 +1,1 @@
+export { dynamo, schema } from './db';

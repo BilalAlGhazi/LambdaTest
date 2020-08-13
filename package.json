@@ -1,0 +1,41 @@
+{
+  "name": "lambdas",
+  "version": "1.0.0",
+  "description": "These are a set of lambdas used for Polymesh Offchain Services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolymathNetwork/lambdas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PolymathNetwork/lambdas/issues"
+  },
+  "homepage": "https://github.com/PolymathNetwork/lambdas#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "serverless-offline": "^6.1.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.653.0",
+    "axios": "^0.19.2",
+    "knex": "^0.21.0",
+    "pg": "^8.0.3"
+  }
+}
