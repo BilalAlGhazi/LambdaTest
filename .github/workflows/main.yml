@@ -21,9 +21,6 @@ jobs:
       - name: Install Node Modules
         env:
           CI: true
-      - name: Install Node Modules
-        env:
-          CI: true
         run: yarn build
       - name: zip
         uses: montudor/action-zip@v0.1.0
