@@ -22,19 +22,19 @@ jobs:
         env:
           CI: true
         run: yarn
-      - name: Build
+      - name: Build package
         env:
           CI: true
         run: yarn build
-      - name: zip
+      - name: Zip
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r ./bundle.zip ./
-      - name: default deploy
+      - name: Deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-west-1
-          function_name: my-function
+          function_name: registration
           zip_file: bundle.zip
